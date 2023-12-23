@@ -1,5 +1,5 @@
 class Solution:
-    def validMountainArray(self, arr: List[int]) -> bool:
+    def validMountainArray(self, arr) -> bool:
         if len(arr) < 3 or arr[0] >= arr[1]:
             return False
         for i in range(len(arr)-1):
@@ -10,6 +10,3 @@ class Solution:
                     if arr[j] <= arr[j+1]:
                         return False
         return True
-                
-                
-                
