@@ -9,4 +9,6 @@ class Solution:
                 for j in range(i,len(arr)-1):
                     if arr[j] <= arr[j+1]:
                         return False
+                return True
+                
         return True
