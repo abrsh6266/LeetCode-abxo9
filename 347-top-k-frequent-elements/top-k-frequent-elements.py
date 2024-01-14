@@ -1,7 +1,6 @@
 class Solution:
     def topKFrequent(self, nums: [int], k: int) -> [int]:
         nn = {}
-        current = 0
         nns = []
         for n in nums:
             if n in nn:
