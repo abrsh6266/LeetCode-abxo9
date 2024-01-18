@@ -17,11 +17,8 @@ class MinStack:
         else:
             raise IndexError("peek from an empty stack")
     def getMin(self) -> int:
-        m = sys.maxsize
         if len(self.items) != 0:
-            for i in self.items:
-                m = min(m,i)
-            return m
+            return sorted(self.items)[0]
         else:
             raise IndexError("peek from an empty stack")
 
