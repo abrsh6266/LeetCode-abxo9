@@ -1,16 +1,17 @@
 class Solution:
     def characterReplacement(self, s: str, k: int) -> int:
-        if not s: return 0
-        N=len(s)
-        start=0
-        c=Counter(s[0])
-        for end in range(1,N):
-            c[s[end]] += 1
-            countOfMostCommonChar = c.most_common(1)[0][1]
-            lengthOfWindow = end-start+1
-            numOpsToMakeWindowValid = lengthOfWindow - countOfMostCommonChar
-            if numOpsToMakeWindowValid > k:
-                c[s[start]]-=1
-                start+=1
-                
-        return N - start
+        h = {}
+        l = 0
+        m = 0
+        res = 0
+        n = len(s)
+        for r in range(n):
+            h[s[r]] = 1 + h.get(s[r],0)
+            m = max(m,h[s[r]])
+            while (r-l+1) - m > k:
+                h[s[l]] = h[s[l]] - 1
+                l += 1
+            res = max(r-l+1,res) 
+        return res
+
+        
